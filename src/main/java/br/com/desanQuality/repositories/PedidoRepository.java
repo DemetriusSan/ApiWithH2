@@ -1,0 +1,15 @@
+package br.com.desanQuality.repositories;
+
+import br.com.desanQuality.enums.StatusPedido;
+import br.com.desanQuality.models.Pedido;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface PedidoRepository extends JpaRepository<Pedido, Long> {
+    List<Pedido> findByStatus(StatusPedido status);
+
+    List<Pedido> findByStatus(br.com.desanQuality.models.StatusPedido statusPedido);
+}
